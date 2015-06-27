@@ -4,7 +4,51 @@ Swift Style Guide
 본 문서는 Swift 코드를 명확하게 작성하기 위한 스타일 가이드입니다.
 
 
-## 공백 (Spacing)
+## Table of Contents
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [공백](#%EA%B3%B5%EB%B0%B1)
+- [줄바꿈](#%EC%A4%84%EB%B0%94%EA%BF%88)
+    - [코드 최대 길이는 119자로 제한합니다.](#%EC%BD%94%EB%93%9C-%EC%B5%9C%EB%8C%80-%EA%B8%B8%EC%9D%B4%EB%8A%94-119%EC%9E%90%EB%A1%9C-%EC%A0%9C%ED%95%9C%ED%95%A9%EB%8B%88%EB%8B%A4)
+    - [클래스 정의가 긴 경우에는 적당한 위치에서 줄바꿈하고, 한 단계 들여쓰기합니다.](#%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%A0%95%EC%9D%98%EA%B0%80-%EA%B8%B4-%EA%B2%BD%EC%9A%B0%EC%97%90%EB%8A%94-%EC%A0%81%EB%8B%B9%ED%95%9C-%EC%9C%84%EC%B9%98%EC%97%90%EC%84%9C-%EC%A4%84%EB%B0%94%EA%BF%88%ED%95%98%EA%B3%A0-%ED%95%9C-%EB%8B%A8%EA%B3%84-%EB%93%A4%EC%97%AC%EC%93%B0%EA%B8%B0%ED%95%A9%EB%8B%88%EB%8B%A4)
+    - [함수 정의가 길 때에는 괄호를 기준으로 줄바꿈합니다.](#%ED%95%A8%EC%88%98-%EC%A0%95%EC%9D%98%EA%B0%80-%EA%B8%B8-%EB%95%8C%EC%97%90%EB%8A%94-%EA%B4%84%ED%98%B8%EB%A5%BC-%EA%B8%B0%EC%A4%80%EC%9C%BC%EB%A1%9C-%EC%A4%84%EB%B0%94%EA%BF%88%ED%95%A9%EB%8B%88%EB%8B%A4)
+    - [함수 호출 코드가 길 때에는 파라미터 이름을 기준으로 줄바꿈합니다.](#%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C-%EC%BD%94%EB%93%9C%EA%B0%80-%EA%B8%B8-%EB%95%8C%EC%97%90%EB%8A%94-%ED%8C%8C%EB%9D%BC%EB%AF%B8%ED%84%B0-%EC%9D%B4%EB%A6%84%EC%9D%84-%EA%B8%B0%EC%A4%80%EC%9C%BC%EB%A1%9C-%EC%A4%84%EB%B0%94%EA%BF%88%ED%95%A9%EB%8B%88%EB%8B%A4)
+    - [변수 정의가 길 때에는 적당한 위치에서 줄바꿈하고, 한 단계 들여쓰기합니다.](#%EB%B3%80%EC%88%98-%EC%A0%95%EC%9D%98%EA%B0%80-%EA%B8%B8-%EB%95%8C%EC%97%90%EB%8A%94-%EC%A0%81%EB%8B%B9%ED%95%9C-%EC%9C%84%EC%B9%98%EC%97%90%EC%84%9C-%EC%A4%84%EB%B0%94%EA%BF%88%ED%95%98%EA%B3%A0-%ED%95%9C-%EB%8B%A8%EA%B3%84-%EB%93%A4%EC%97%AC%EC%93%B0%EA%B8%B0%ED%95%A9%EB%8B%88%EB%8B%A4)
+    - [`class` 내부 코드의 가장 윗줄과 아랫줄에는 공백을 둡니다.](#class-%EB%82%B4%EB%B6%80-%EC%BD%94%EB%93%9C%EC%9D%98-%EA%B0%80%EC%9E%A5-%EC%9C%97%EC%A4%84%EA%B3%BC-%EC%95%84%EB%9E%AB%EC%A4%84%EC%97%90%EB%8A%94-%EA%B3%B5%EB%B0%B1%EC%9D%84-%EB%91%A1%EB%8B%88%EB%8B%A4)
+    - [`// MARK:` 앞에는 두 줄의 공백을, 뒤에는 한 줄의 공백을 둡니다.](#-mark-%EC%95%9E%EC%97%90%EB%8A%94-%EB%91%90-%EC%A4%84%EC%9D%98-%EA%B3%B5%EB%B0%B1%EC%9D%84-%EB%92%A4%EC%97%90%EB%8A%94-%ED%95%9C-%EC%A4%84%EC%9D%98-%EA%B3%B5%EB%B0%B1%EC%9D%84-%EB%91%A1%EB%8B%88%EB%8B%A4)
+    - [`if let` 구문이 길 경우에는 `let`과 `where`를 기준으로 줄바꿈합니다.](#if-let-%EA%B5%AC%EB%AC%B8%EC%9D%B4-%EA%B8%B8-%EA%B2%BD%EC%9A%B0%EC%97%90%EB%8A%94-let%EA%B3%BC-where%EB%A5%BC-%EA%B8%B0%EC%A4%80%EC%9C%BC%EB%A1%9C-%EC%A4%84%EB%B0%94%EA%BF%88%ED%95%A9%EB%8B%88%EB%8B%A4)
+- [네이밍](#%EB%84%A4%EC%9D%B4%EB%B0%8D)
+    - [Class Prefix](#class-prefix)
+    - [상수(constant)에는 소문자로 시작하는 Camel Case를 사용합니다.](#%EC%83%81%EC%88%98constant%EC%97%90%EB%8A%94-%EC%86%8C%EB%AC%B8%EC%9E%90%EB%A1%9C-%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94-camel-case%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A9%EB%8B%88%EB%8B%A4)
+    - [약어(abbreviation)는 대문자로 표시합니다.](#%EC%95%BD%EC%96%B4abbreviation%EB%8A%94-%EB%8C%80%EB%AC%B8%EC%9E%90%EB%A1%9C-%ED%91%9C%EC%8B%9C%ED%95%A9%EB%8B%88%EB%8B%A4)
+    - [함수 이름 앞에 사용되는 `get`을 지양합니다.](#%ED%95%A8%EC%88%98-%EC%9D%B4%EB%A6%84-%EC%95%9E%EC%97%90-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-get%EC%9D%84-%EC%A7%80%EC%96%91%ED%95%A9%EB%8B%88%EB%8B%A4)
+    - [Action 함수의 네이밍은 '주어 + 동사 + 목적어' 형태를 사용합니다.](#action-%ED%95%A8%EC%88%98%EC%9D%98-%EB%84%A4%EC%9D%B4%EB%B0%8D%EC%9D%80-%EC%A3%BC%EC%96%B4--%EB%8F%99%EC%82%AC--%EB%AA%A9%EC%A0%81%EC%96%B4-%ED%98%95%ED%83%9C%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A9%EB%8B%88%EB%8B%A4)
+    - [Delegate 메서드는 프로토콜명으로 네임스페이스를 구분합니다.](#delegate-%EB%A9%94%EC%84%9C%EB%93%9C%EB%8A%94-%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C%EB%AA%85%EC%9C%BC%EB%A1%9C-%EB%84%A4%EC%9E%84%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%A5%BC-%EA%B5%AC%EB%B6%84%ED%95%A9%EB%8B%88%EB%8B%A4)
+- [클래스](#%ED%81%B4%EB%9E%98%EC%8A%A4)
+    - [UI 개발에 사용되는 상수들은 클래스 내부의 `struct`에서 관리합니다.](#ui-%EA%B0%9C%EB%B0%9C%EC%97%90-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%EC%83%81%EC%88%98%EB%93%A4%EC%9D%80-%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%82%B4%EB%B6%80%EC%9D%98-struct%EC%97%90%EC%84%9C-%EA%B4%80%EB%A6%AC%ED%95%A9%EB%8B%88%EB%8B%A4)
+    - [클래스 내부에서는 `self`를 명시적으로 사용합니다.](#%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%82%B4%EB%B6%80%EC%97%90%EC%84%9C%EB%8A%94-self%EB%A5%BC-%EB%AA%85%EC%8B%9C%EC%A0%81%EC%9C%BC%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%A9%EB%8B%88%EB%8B%A4)
+- [구조체](#%EA%B5%AC%EC%A1%B0%EC%B2%B4)
+    - [구조체를 생성할 때에는 Swift 구조체 생성자를 사용합니다.](#%EA%B5%AC%EC%A1%B0%EC%B2%B4%EB%A5%BC-%EC%83%9D%EC%84%B1%ED%95%A0-%EB%95%8C%EC%97%90%EB%8A%94-swift-%EA%B5%AC%EC%A1%B0%EC%B2%B4-%EC%83%9D%EC%84%B1%EC%9E%90%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A9%EB%8B%88%EB%8B%A4)
+- [타입 선언](#%ED%83%80%EC%9E%85-%EC%84%A0%EC%96%B8)
+    - [타입 선언은 필요한 경우에만 사용합니다.](#%ED%83%80%EC%9E%85-%EC%84%A0%EC%96%B8%EC%9D%80-%ED%95%84%EC%9A%94%ED%95%9C-%EA%B2%BD%EC%9A%B0%EC%97%90%EB%A7%8C-%EC%82%AC%EC%9A%A9%ED%95%A9%EB%8B%88%EB%8B%A4)
+    - [`Array<T>`와 `Dictionary<T: U>` 보다는 `[T]`, `[T: U]`를 사용합니다.](#arrayt%EC%99%80-dictionaryt-u-%EB%B3%B4%EB%8B%A4%EB%8A%94-t-t-u%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A9%EB%8B%88%EB%8B%A4)
+- [Control Flow](#control-flow)
+    - [중첩된 `if let` 구문은 하나로 합쳐서 사용합니다.](#%EC%A4%91%EC%B2%A9%EB%90%9C-if-let-%EA%B5%AC%EB%AC%B8%EC%9D%80-%ED%95%98%EB%82%98%EB%A1%9C-%ED%95%A9%EC%B3%90%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%A9%EB%8B%88%EB%8B%A4)
+    - [중첩된 `if let`과 `if` 구문은 `if let...where` 구문으로 줄여서 사용합니다.](#%EC%A4%91%EC%B2%A9%EB%90%9C-if-let%EA%B3%BC-if-%EA%B5%AC%EB%AC%B8%EC%9D%80-if-letwhere-%EA%B5%AC%EB%AC%B8%EC%9C%BC%EB%A1%9C-%EC%A4%84%EC%97%AC%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%A9%EB%8B%88%EB%8B%A4)
+- [주석](#%EC%A3%BC%EC%84%9D)
+    - [문서화를 위한 주석에는  `///` 을 사용합니다.](#%EB%AC%B8%EC%84%9C%ED%99%94%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%A3%BC%EC%84%9D%EC%97%90%EB%8A%94---%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%A9%EB%8B%88%EB%8B%A4)
+    - [`// MARK:`를 사용해서 연관된 코드를 구분짓습니다.](#-mark%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%84%9C-%EC%97%B0%EA%B4%80%EB%90%9C-%EC%BD%94%EB%93%9C%EB%A5%BC-%EA%B5%AC%EB%B6%84%EC%A7%93%EC%8A%B5%EB%8B%88%EB%8B%A4)
+- [기타](#%EA%B8%B0%ED%83%80)
+    - [`import`는 위부터 ABC순으로 작성합니다.](#import%EB%8A%94-%EC%9C%84%EB%B6%80%ED%84%B0-abc%EC%88%9C%EC%9C%BC%EB%A1%9C-%EC%9E%91%EC%84%B1%ED%95%A9%EB%8B%88%EB%8B%A4)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+--
+
+## 공백
 
 * 들여쓰기에는 탭(tab) 대신 4개의 space를 사용합니다.
 * 모든 파일은 빈 줄(new-line)로 끝나도록 합니다.
@@ -16,7 +60,7 @@ Swift Style Guide
     ```
 
 
-## 줄바꿈 (Line Break)
+## 줄바꿈
 
 #### 코드 최대 길이는 119자로 제한합니다.
 
@@ -125,7 +169,7 @@ if let user = self.user,
 ```
 
 
-## 네이밍 (Naming)
+## 네이밍
 
 #### Class Prefix
 
@@ -240,7 +284,7 @@ protocol UserCellDelegate: NSObjectProtocol {
 ```
 
 
-## 클래스 (Class)
+## 클래스
 
 #### UI 개발에 사용되는 상수들은 클래스 내부의 `struct`에서 관리합니다.
 
@@ -282,7 +326,7 @@ self.nameLabel.textColor = Color.NameLabelText
 #### 클래스 내부에서는 `self`를 명시적으로 사용합니다.
 
 
-## 구조체 (Struct)
+## 구조체
 
 #### 구조체를 생성할 때에는 Swift 구조체 생성자를 사용합니다.
 
@@ -377,7 +421,7 @@ if let user = self.user {
 ```
 
 
-## 주석 (Comment)
+## 주석
 
 #### 문서화를 위한 주석에는  `///` 을 사용합니다.
 
