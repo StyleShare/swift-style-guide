@@ -599,5 +599,13 @@ import UIKit
 ```
 
 
+라이센스
+------
+
+본 스타일 가이드 문서는 CC-By 3.0 라이센스를 따릅니다. 자세한 내용은 [http://creativecommons.org/licenses/by/3.0/][cc] 링크를 참조해주세요.
+
+
 [cgfloatliteral]: https://gist.github.com/devxoul/5186803939957b2c3f8a
 [swiftycolor]: https://github.com/devxoul/SwiftyColor
+[cc]: http://creativecommons.org/licenses/by/3.0/
+
