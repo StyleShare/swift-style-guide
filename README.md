@@ -4,7 +4,8 @@ Swift Style Guide
 본 문서는 StyleShare 구성원들이 Swift 코드를 이해하기 쉽고 명확하게 작성하기 위한 스타일 가이드입니다. 구성원들의 의사결정에 따라 수시로 변경될 수 있습니다.
 
 
-## Table of Contents
+Table of Contents
+-----------------
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -55,7 +56,8 @@ Swift Style Guide
 
 --
 
-## 공백
+공백
+----
 
 * 들여쓰기에는 탭(tab) 대신 4개의 space를 사용합니다.
 * 모든 파일은 빈 줄(new-line)로 끝나도록 합니다.
@@ -67,7 +69,8 @@ Swift Style Guide
     ```
 
 
-## 줄바꿈
+줄바꿈
+----
 
 #### 코드 최대 길이는 119자로 제한합니다.
 
@@ -249,7 +252,6 @@ func backButtonDidTap() {
 }
 ```
 
-
 **나쁜 예:**
 
 ```swift
@@ -291,7 +293,8 @@ protocol UserCellDelegate: NSObjectProtocol {
 ```
 
 
-## Closure
+Closure
+-------
 
 #### 파라미터와 리턴 타입이 없는 Closure 정의시에는 `() -> Void`를 사용합니다.
 
@@ -394,7 +397,8 @@ let sortedArray = array.sort { obj1, objc2 in
 
 
 
-## 클래스
+클래스
+----
 
 #### UI 개발에 사용되는 상수들은 클래스 내부의 `struct`에서 관리합니다.
 
@@ -438,7 +442,8 @@ self.nameLabel.textColor = Color.nameLabelText
 #### 클래스 내부에서는 `self`를 명시적으로 사용합니다.
 
 
-## 구조체
+구조체
+----
 
 #### 구조체를 생성할 때에는 Swift 구조체 생성자를 사용합니다.
 
@@ -455,7 +460,8 @@ let frame = CGRectMake(0, 0, 100, 100)
 ```
 
 
-## 타입 선언
+타입 선언
+-------
 
 #### 타입 선언은 필요한 경우에만 사용합니다.
 
@@ -489,7 +495,8 @@ var names: Dictionary<Int, String>?
 ```
 
 
-## Control Flow
+Control Flow
+------------
 
 #### 중첩된 `if let` 구문은 하나로 합쳐서 사용합니다.
 
@@ -533,7 +540,8 @@ if let user = self.user {
 ```
 
 
-## 주석
+주석
+----
 
 #### 문서화를 위한 주석에는  `///` 을 사용합니다.
 
@@ -579,7 +587,8 @@ override func menuButtonDidTap() {
 ```
 
 
-## 기타
+기타
+----
 
 #### `import`는 위부터 ABC순으로 작성합니다.
 
