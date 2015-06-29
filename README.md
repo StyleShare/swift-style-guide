@@ -288,28 +288,30 @@ protocol UserCellDelegate: NSObjectProtocol {
 
 #### UI 개발에 사용되는 상수들은 클래스 내부의 `struct`에서 관리합니다.
 
-재사용성과 유지보수 측면에서 큰 향상을 가져옵니다.
+재사용성과 유지보수 측면에서 큰 향상을 가져옵니다. [CGFloatLiteral][cgfloatliteral]과 [SwiftyColor][swiftycolor]를 사용해서 코드를 단순화시킵니다.
 
 ```swift
 class ProfileView: UIView {
 
     struct Metric {
-        static let ProfileImageViewLeft: CGFloat = 10
-        static let ProfileImageViewRight: CGFloat = 10
-        static let NameLabelTopBottom: CGFloat = 8
-        static let BioLabelTop: CGFloat = 6
+        static let profileImageViewLeft = 10.f
+        static let profileImageViewRight = 10.f
+        static let nameLabelTopBottom = 8.f
+        static let bioLabelTop = 6.f
     }
     
     struct Font {
-        static let NameLabel = UIFont.boldSystemFontOfSize(14)
-        static let BioLabel = UIFont.boldSystemFontOfSize(12)
+        static let nameLabel = UIFont.boldSystemFontOfSize(14)
+        static let bioLabel = UIFont.boldSystemFontOfSize(12)
     }
     
     // SwiftyColor에서 제공하는 Color Operator를 사용합니다.
     struct Color {
-        static let NameLabelText = 0x000000~
-        static let BioLabelText = 0x333333~70%
+        static let nameLabelText = 0x000000~
+        static let bioLabelText = 0x333333~70%
     }
+    
+    ...
 
 }
 ```
@@ -317,9 +319,9 @@ class ProfileView: UIView {
 이렇게 선언된 상수들은 다음과 같이 사용될 수 있습니다:
 
 ```swift
-self.profileImageView.frame.origin.x = Metric. ProfileImageViewLeft
-self.nameLabel.font = Font.NameLabel
-self.nameLabel.textColor = Color.NameLabelText
+self.profileImageView.frame.origin.x = Metric.profileImageViewLeft
+self.nameLabel.font = Font.nameLabel
+self.nameLabel.textColor = Color.nameLabelText
 ```
 
 
@@ -476,3 +478,7 @@ import Alamofire
 import SuperModel
 import UIKit
 ```
+
+
+[cgfloatliteral]: https://gist.github.com/devxoul/5186803939957b2c3f8a
+[swiftycolor]: https://github.com/devxoul/SwiftyColor
