@@ -284,6 +284,109 @@ protocol UserCellDelegate: NSObjectProtocol {
 ```
 
 
+## Closure
+
+#### 파라미터와 리턴 타입이 없는 Closure 정의시에는 `() -> Void`를 사용합니다.
+
+**좋은 예:**
+
+```swift
+let completionBlock: (() -> Void)?
+```
+
+**나쁜 예:**
+
+```swift
+let completionBlock: (() -> ())?
+let completionBlock: ((Void) -> (Void))?
+```
+
+
+#### Closure 정의시 파라미터에는 괄호를 사용하지 않습니다.
+
+**좋은 예:**
+
+```swift
+{ operaion, responseObject in
+    ...
+}
+```
+
+**나쁜 예:**
+
+```swift
+{ (operaion, responseObject) in
+    ...
+}
+```
+
+
+#### Closure 정의시 가능한 경우 타입 정의를 생략합니다.
+
+**좋은 예:**
+
+```swift
+...,
+completion: { finished in
+   ...
+}
+```
+
+**나쁜 예:**
+
+```swift
+...,
+completion: { (finished: Bool) -> Void in
+    ...
+}
+```
+
+
+#### Closure 호출시 또다른 유일한 Closure를 마지막 파라미터로 받는 경우, 파라미터 이름을 생략합니다.
+
+**좋은 예:**
+
+```swift
+UIView.animateWithDuration(0.5) {
+    ...
+}
+```
+
+**나쁜 예:**
+
+```swift
+UIView.animateWithDuration(0.5, animations: { () -> Void in
+    ...
+})
+```
+
+
+#### Closure 호출시 Closure를 유일한 파라미터로 받는 경우, 괄호를 생략해도 됩니다.
+
+```swift
+let sortedArray = array.sort { ... }
+let sortedArray = array.sort() { ... }
+```
+
+
+#### 간결한 Closure 호출시 파라미터와 `return` 구문을 생략합니다.
+
+**좋은 예:**
+
+```swift
+let sortedArray = array.sort { $0 > $1 }
+```
+
+**나쁜 예:**
+
+```swift
+let sortedArray = array.sort { obj1, objc2 in
+    return obj1 > obj2
+}
+```
+
+
+
 ## 클래스
 
 #### UI 개발에 사용되는 상수들은 클래스 내부의 `struct`에서 관리합니다.
