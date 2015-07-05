@@ -600,8 +600,12 @@ override func menuButtonDidTap() {
 
 ```swift
 import Alamofire
-import SuperModel
+import SwiftyColor
+import SwiftyModel
+import JLToast
 import UIKit
+import UINavigationItem_Margin
+import UITextView_Placeholder
 ```
 
 
