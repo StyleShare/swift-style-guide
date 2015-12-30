@@ -21,6 +21,7 @@ Swift Style Guide
 - [클래스와 구조체](#클래스와-구조체)
 - [타입](#타입)
 - [주석](#주석)
+- [프로그래밍 권장사항](#프로그래밍-권장사항)
 
 ## 코드 레이아웃
 
@@ -195,44 +196,6 @@ Swift Style Guide
     ```swift
     let kMaximumNumberOfLines = 3
     let MAX_LINES = 3
-    ```
-
-- 클래스 안에서 사용되는 상수들은 클래스 내부의 `struct`에서 관리합니다.
-
-    재사용성과 유지보수 측면에서 큰 향상을 가져옵니다. [CGFloatLiteral][cgfloatliteral]과 [SwiftyColor][swiftycolor]를 사용해서 코드를 단순화시킵니다.
-
-    ```swift
-    final class ProfileViewController: UIViewController {
-
-        struct Metric {
-            static let profileImageViewLeft = 10.f
-            static let profileImageViewRight = 10.f
-            static let nameLabelTopBottom = 8.f
-            static let bioLabelTop = 6.f
-        }
-        
-        struct Font {
-            static let nameLabel = UIFont.boldSystemFontOfSize(14)
-            static let bioLabel = UIFont.boldSystemFontOfSize(12)
-        }
-        
-        // SwiftyColor에서 제공하는 Color Operator를 사용합니다.
-        struct Color {
-            static let nameLabelText = 0x000000~
-            static let bioLabelText = 0x333333~70%
-        }
-        
-        // ...
-
-    }
-    ```
-
-    이렇게 선언된 상수들은 다음과 같이 사용될 수 있습니다:
-
-    ```swift
-    self.profileImageView.frame.origin.x = Metric.profileImageViewLeft
-    self.nameLabel.font = Font.nameLabel
-    self.nameLabel.textColor = Color.nameLabelText
     ```
 
 ### 약어
@@ -460,6 +423,53 @@ Swift Style Guide
     override func menuButtonDidTap() {
         // ...
     }
+    ```
+
+## 프로그래밍 권장사항
+
+- 가능하다면 변수를 정의할 때 함께 초기화하도록 합니다. [Then](https://github.com/devxoul/Then)을 사용하면 초기화와 함께 속성을 지정할 수 있습니다.
+
+    ```swift
+    let label = UILabel().then {
+        $0.textAlignment = .Center
+        $0.textColor = .blackColor()
+        $0.text = "Hello, World!"
+    }
+    ```
+
+- 상수를 정의할 때에는 `struct`를 만들어 비슷한 상수끼리 모아둡니다. 재사용성과 유지보수 측면에서 큰 향상을 가져옵니다. [CGFloatLiteral][cgfloatliteral]과 [SwiftyColor][swiftycolor]를 사용해서 코드를 단순화시킵니다.
+
+    ```swift
+    final class ProfileViewController: UIViewController {
+
+        struct Metric {
+            static let profileImageViewLeft = 10.f
+            static let profileImageViewRight = 10.f
+            static let nameLabelTopBottom = 8.f
+            static let bioLabelTop = 6.f
+        }
+        
+        struct Font {
+            static let nameLabel = UIFont.boldSystemFontOfSize(14)
+            static let bioLabel = UIFont.boldSystemFontOfSize(12)
+        }
+        
+        struct Color {
+            static let nameLabelText = 0x000000~
+            static let bioLabelText = 0x333333~70%
+        }
+
+        // ...
+
+    }
+    ```
+
+    이렇게 선언된 상수들은 다음과 같이 사용될 수 있습니다.
+
+    ```swift
+    self.profileImageView.frame.origin.x = Metric.profileImageViewLeft
+    self.nameLabel.font = Font.nameLabel
+    self.nameLabel.textColor = Color.nameLabelText
     ```
 
 ## 라이센스
