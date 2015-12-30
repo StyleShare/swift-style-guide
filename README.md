@@ -472,6 +472,38 @@ Swift Style Guide
     self.nameLabel.textColor = Color.nameLabelText
     ```
 
+- 프로토콜을 적용할 때에는 extension을 만들어서 관련된 메서드를 모아둡니다.
+
+    **좋은 예**:
+
+    ```swift
+    final class MyViewController: UIViewController {
+        // ...
+    }
+
+
+    // MARK: - UITableViewDataSource
+
+    extension MyViewController: UITableViewDataSource {
+        // ...
+    }
+
+
+    // MARK: - UITableViewDelegate
+
+    extension MyViewController: UITableViewDelegate {
+        // ...
+    }
+    ```
+
+    **나쁜 예**:
+
+    ```swift
+    final class MyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+        // ...
+    }
+    ```
+
 ## 라이센스
 
 본 스타일 가이드 문서는 CC-By 3.0 라이센스를 따릅니다. 자세한 내용은 [http://creativecommons.org/licenses/by/3.0/][cc] 링크를 참조해주세요.
