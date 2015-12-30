@@ -472,6 +472,8 @@ Swift Style Guide
     self.nameLabel.textColor = Color.nameLabelText
     ```
 
+- 더이상 상속이 발생하지 않는 클래스는 항상 `final` 키워드로 선언합니다.
+
 - 프로토콜을 적용할 때에는 extension을 만들어서 관련된 메서드를 모아둡니다.
 
     **좋은 예**:
