@@ -439,7 +439,7 @@ Swift Style Guide
     }
     ```
 
-- 상수를 정의할 때에는 `struct`를 만들어 비슷한 상수끼리 모아둡니다. 재사용성과 유지보수 측면에서 큰 향상을 가져옵니다. [CGFloatLiteral][cgfloatliteral]과 [SwiftyColor][swiftycolor]를 사용해서 코드를 단순화시킵니다.
+- 상수를 정의할 때에는 `struct`를 만들어 비슷한 상수끼리 모아둡니다. 재사용성과 유지보수 측면에서 큰 향상을 가져옵니다. [CGFloatLiteral][https://github.com/devxoul/CGFloatLiteral]과 [SwiftyColor][https://github.com/devxoul/SwiftyColor]를 사용해서 코드를 단순화시킵니다.
 
     ```swift
     final class ProfileViewController: UIViewController {
@@ -510,10 +510,4 @@ Swift Style Guide
 
 ## 라이센스
 
-본 스타일 가이드 문서는 CC-By 3.0 라이센스를 따릅니다. 자세한 내용은 [http://creativecommons.org/licenses/by/3.0/][cc] 링크를 참조해주세요.
-
-
-[cgfloatliteral]: https://gist.github.com/devxoul/5186803939957b2c3f8a
-[swiftycolor]: https://github.com/devxoul/SwiftyColor
-[cc]: http://creativecommons.org/licenses/by/3.0/
-
+본 스타일 가이드 문서는 CC-By 3.0 라이센스를 따릅니다. 자세한 내용은 [http://creativecommons.org/licenses/by/3.0/][http://creativecommons.org/licenses/by/3.0/] 링크를 참조해주세요.
