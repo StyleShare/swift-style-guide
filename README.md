@@ -1,6 +1,8 @@
 Swift Style Guide
 =================
 
+![Swift](https://img.shields.io/badge/Swift-2.1-orange.svg)
+
 본 문서는 StyleShare 구성원들이 Swift 코드를 이해하기 쉽고 명확하게 작성하기 위한 스타일 가이드입니다. 구성원들의 의사결정에 따라 수시로 변경될 수 있습니다.
 
 ## 목차
