@@ -439,7 +439,7 @@ Swift Style Guide
     }
     ```
 
-- 상수를 정의할 때에는 `struct`를 만들어 비슷한 상수끼리 모아둡니다. 재사용성과 유지보수 측면에서 큰 향상을 가져옵니다. [CGFloatLiteral][https://github.com/devxoul/CGFloatLiteral]과 [SwiftyColor][https://github.com/devxoul/SwiftyColor]를 사용해서 코드를 단순화시킵니다.
+- 상수를 정의할 때에는 `struct`를 만들어 비슷한 상수끼리 모아둡니다. 재사용성과 유지보수 측면에서 큰 향상을 가져옵니다. [CGFloatLiteral](https://github.com/devxoul/CGFloatLiteral)과 [SwiftyColor](https://github.com/devxoul/SwiftyColor)를 사용해서 코드를 단순화시킵니다.
 
     ```swift
     final class ProfileViewController: UIViewController {
