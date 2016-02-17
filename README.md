@@ -12,6 +12,7 @@ Swift Style Guide
     - [줄바꿈](#줄바꿈)
     - [최대 줄 길이](#최대-줄-길이)
     - [빈 줄](#빈-줄)
+    - [임포트](#임포트)
 - [네이밍](#네이밍)
     - [클래스](#클래스)
     - [함수](#함수)
@@ -128,6 +129,18 @@ Swift Style Guide
         // ...
     }
     ```
+    
+### 임포트
+
+모듈 임포트는 알파벳 순으로 정렬합니다. 내장 프레임워크를 먼저 임포트하고, 빈 줄로 구분하여 서드파티 프레임워크를 임포트합니다.
+
+```swift
+import UIKit
+
+import SwiftyColor
+import SwiftyImage
+import URLNavigator
+```
 
 ## 네이밍
 
