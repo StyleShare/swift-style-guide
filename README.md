@@ -1,7 +1,7 @@
 Swift Style Guide
 =================
 
-![Swift](https://img.shields.io/badge/Swift-2.1-orange.svg)
+![Swift](https://img.shields.io/badge/Swift-2.2-orange.svg)
 
 본 문서는 StyleShare 구성원들이 Swift 코드를 이해하기 쉽고 명확하게 작성하기 위한 스타일 가이드입니다. 구성원들의 의사결정에 따라 수시로 변경될 수 있습니다.
 
@@ -71,11 +71,21 @@ Swift Style Guide
         destructiveButtonTitle: "삭제해주세요"
     )
     ```
+    
+    또는
+    
+    ```swift
+    let actionSheet = UIActionSheet(title: "정말 계정을 삭제하실 건가요?",
+                                    delegate: self,
+                                    cancelButtonTitle: "취소",
+                                    destructiveButtonTitle: "삭제해주세요")
+    ```
 
-    단, 파라미터 이름이 없는 첫 번째 파라미터는 첫 줄에 씁니다. 만약 이름이 없는 첫 번째 파라미터가 너무 길다면 줄바꿈해도 무방합니다.
+    단, 파라미터에 클로저가 2개 이상 존재하는 경우에는 무조건 내려쓰기합니다.
 
     ```swift
-    UIView.animateWithDuration(0.25,
+    UIView.animateWithDuration(
+        0.25,
         animations: {
             // ...
         },
