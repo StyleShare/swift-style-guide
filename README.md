@@ -149,6 +149,7 @@ import UIKit
 
 import SwiftyColor
 import SwiftyImage
+import Then
 import URLNavigator
 ```
 
