@@ -95,7 +95,7 @@ Swift Style Guide
     )
     ```
 
-- 변수 정의가 최대 길이를 초화가는 경우에는 적당한 위치에서 줄바꿈하고, 한 단계 들여쓰기합니다.
+- 변수 정의가 최대 길이를 초과가는 경우에는 적당한 위치에서 줄바꿈하고, 한 단계 들여쓰기합니다.
 
     ```swift
     let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.VeryVeryLongUser)
