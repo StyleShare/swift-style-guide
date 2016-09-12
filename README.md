@@ -2,6 +2,7 @@ Swift Style Guide
 =================
 
 ![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)
+[![Creative Commons License](https://img.shields.io/badge/license-CC--BY--4.0-blue.svg)](http://creativecommons.org/licenses/by/4.0/)
 
 StyleShare 구성원들이 Swift 코드를 이해하기 쉽고 명확하게 작성하기 위한 스타일 가이드입니다. 구성원들의 의사결정에 따라 수시로 변경될 수 있습니다.
 
@@ -535,4 +536,4 @@ import URLNavigator
 
 ## 라이센스
 
-본 스타일 가이드 문서는 CC-By 3.0 라이센스를 따릅니다. 자세한 내용은 [http://creativecommons.org/licenses/by/3.0/](http://creativecommons.org/licenses/by/3.0/) 링크를 참조해주세요.
+본 문서는 [크리에이티브 커먼즈 저작자표시 4.0 국제 라이센스](http://creativecommons.org/licenses/by/4.0/)에 따라 이용할 수 있으며, 저작권은 [전수열](http://xoul.kr)과 [StyleShare](https://stylesha.re)에게 있습니다.
