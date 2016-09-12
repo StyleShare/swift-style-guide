@@ -1,9 +1,14 @@
 Swift Style Guide
 =================
 
-![Swift](https://img.shields.io/badge/Swift-2.2-orange.svg)
+![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)
 
-본 문서는 StyleShare 구성원들이 Swift 코드를 이해하기 쉽고 명확하게 작성하기 위한 스타일 가이드입니다. 구성원들의 의사결정에 따라 수시로 변경될 수 있습니다.
+StyleShare 구성원들이 Swift 코드를 이해하기 쉽고 명확하게 작성하기 위한 스타일 가이드입니다. 구성원들의 의사결정에 따라 수시로 변경될 수 있습니다.
+
+본 문서에 나와있지 않은 규칙은 아래 문서를 따릅니다.
+
+- [Swift API Design Guidelines](https://swift.org/documentation/api-design-guidelines)
+- [SE-0005](https://github.com/apple/swift-evolution/blob/master/proposals/0005-objective-c-name-translation.md)
 
 ## 목차
 
@@ -30,7 +35,7 @@ Swift Style Guide
 
 ### 들여쓰기 및 띄워쓰기
 
-- 들여쓰기에는 탭(tab) 대신 4개의 space를 사용합니다.
+- 들여쓰기에는 탭(tab) 대신 2개의 space를 사용합니다.
 - 콜론(`:`)을 쓸 때에는 콜론의 오른쪽에만 공백을 둡니다.
 
     ```swift
@@ -45,19 +50,22 @@ Swift Style Guide
 
 ### 줄바꿈
 
-- 함수 정의가 최대 길이를 초과하는 경우에는 괄호를 기준으로 줄바꿈합니다.
+- 함수 정의가 최대 길이를 초과하는 경우에는 아래와 같이 줄바꿈합니다.
 
     ```swift
-    func collectionView(collectionView: UICollectionView,
-                        cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        // ...
+    func collectionView(
+      _ collectionView: UICollectionView,
+      cellForItemAtIndexPath indexPath: NSIndexPath
+    ) -> UICollectionViewCell {
+      // doSomething()
     }
 
-    func animationControllerForPresentedController(presented: UIViewController,
-                                                   presentingController presenting: UIViewController,
-                                                   sourceController source: UIViewController)
-                                                   -> UIViewControllerAnimatedTransitioning? {
-        // ...
+    func animationController(
+      forPresented presented: UIViewController,
+      presenting: UIViewController,
+      source: UIViewController
+    ) -> UIViewControllerAnimatedTransitioning? {
+      // doSomething()
     }
     ```
 
@@ -65,10 +73,10 @@ Swift Style Guide
 
     ```swift
     let actionSheet = UIActionSheet(
-        title: "정말 계정을 삭제하실 건가요?",
-        delegate: self,
-        cancelButtonTitle: "취소",
-        destructiveButtonTitle: "삭제해주세요"
+      title: "정말 계정을 삭제하실 건가요?",
+      delegate: self,
+      cancelButtonTitle: "취소",
+      destructiveButtonTitle: "삭제해주세요"
     )
     ```
     
@@ -84,59 +92,61 @@ Swift Style Guide
     단, 파라미터에 클로저가 2개 이상 존재하는 경우에는 무조건 내려쓰기합니다.
 
     ```swift
-    UIView.animateWithDuration(
-        0.25,
-        animations: {
-            // ...
-        },
-        completion: { finished in
-            // ...
-        }
+    UIView.animate(
+      withDuration: 0.25,
+      animations: {
+        // doSomething()
+      },
+      completion: { finished in
+        // doSomething()
+      }
     )
     ```
 
-- 변수 정의가 최대 길이를 초과가는 경우에는 적당한 위치에서 줄바꿈하고, 한 단계 들여쓰기합니다.
-
-    ```swift
-    let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier.VeryVeryLongUser)
-        as! UserCell
-    ```
-
-
-- `if let` 구문이 길 경우에는 `let`과 `where`를 기준으로 줄바꿈합니다.
+- `if let` 구문이 길 경우에는 줄바꿈하고 한 칸 들여씁니다.
 
     ```swift
     if let user = self.veryLongFunctionNameWhichReturnsOptionalUser(),
-       let name = user.veryLongFunctionNameWhichReturnsOptionalName()
-     where user.gender == .Female {
+      let name = user.veryLongFunctionNameWhichReturnsOptionalName(),
+      user.gender == .female {
        // ...
     }
+    ```
+    
+- `guard let` 구문이 길 경우에는 줄바꿈하고 한 칸 들여씁니다.
+
+    ```swift
+    guard let user = self.veryLongFunctionNameWhichReturnsOptionalUser(),
+      let name = user.veryLongFunctionNameWhichReturnsOptionalName(),
+      user.gender == .female
+      else { return }
     ```
 
 ### 최대 줄 길이
 
-- 한 줄은 최대 119자를 넘지 않아야 합니다.
+- 한 줄은 최대 79자를 넘지 않아야 합니다.
 
-    Xcode의 **Preferences → Text Editing → Editing**의 'Page guide at column' 옵션을 활성화하고 119자로 설정하면 편리합니다.
+    ⚠️ *기존에는 119자를 사용하였으나, Swift 3.0 에서 문법이 간략화되면서 더 적은 수로도 가능하게 되었습니다. 79자로 우선 적용해보고, 너무 부족하다는 판단이 생길 경우 99자로 변경할 계획입니다.*
+
+    Xcode의 **Preferences → Text Editing → Editing**의 'Page guide at column' 옵션을 활성화하고 79자로 설정하면 편리합니다.
 
 ### 빈 줄
 
 - 빈 줄에는 공백이 포함되지 않도록 합니다.
 - 모든 파일은 빈 줄로 끝나도록 합니다.
-- MARK 구문 위에는 두 줄의 공백을, 아래에는 한 줄의 공백을 둡니다.
+- MARK 구문 위와 아래에는 공백이 필요합니다.
 
     ```swift
     // MARK: Layout
 
     override func layoutSubviews() {
-        // ...
+      // doSomething()
     }
-
 
     // MARK: Actions
 
     override func menuButtonDidTap() {
-        // ...
+      // doSomething()
     }
     ```
     
@@ -168,13 +178,13 @@ import URLNavigator
     **좋은 예:**
 
     ```swift
-    func nameForUser(user: User) -> String?
+    func name(for user: User) -> String?
     ```
 
     **나쁜 예:**
 
     ```swift
-    func getNameForUser(user: User) -> String?
+    func getName(for user: User) -> String?
     ```
 
 - Action 함수의 네이밍은 '주어 + 동사 + 목적어' 형태를 사용합니다.
@@ -187,7 +197,7 @@ import URLNavigator
 
     ```swift
     func backButtonDidTap() {
-        // ...
+      // ...
     }
     ```
 
@@ -195,11 +205,11 @@ import URLNavigator
 
     ```swift
     func back() {
-        // ...
+      // ...
     }
 
     func pressBack() {
-        // ...
+      // ...
     }
     ```
 
@@ -223,27 +233,49 @@ import URLNavigator
     let kMaximumNumberOfLines = 3
     let MAX_LINES = 3
     ```
+    
+### 열거형
+
+- enum의 각 case에는 lowerCamelCase를 사용합니다.
+
+    **좋은 예:**
+
+    ```swift
+    enum Result {
+      case .success
+      case .failure
+    }
+    ```
+    
+    **나쁜 예:**
+
+    ```swift
+    enum Result {
+      case .Success
+      case .Failure
+    }
+    ```
 
 ### 약어
 
-- 약어는 항상 대문자로 표시합니다.
+- 약어로 시작하는 경우 소문자로 표기하고, 그 외의 경우에는 항상 대문자로 표기합니다.
 
     **좋은 예:**
 
     ```swift
     let userID: Int?
-    let HTML: String?
-    let websiteURL: NSURL?
-    let URLString: String?
+    let html: String?
+    let websiteURL: URL?
+    let urlString: String?
     ```
 
     **나쁜 예:**
 
     ```swift
     let userId: Int?
-    let html: String?
+    let HTML: String?
     let websiteUrl: NSURL?
-    let urlString: String?
+    let URLString: String?
     ```
 
 ### Delegate
@@ -253,25 +285,21 @@ import URLNavigator
     **좋은 예:**
 
     ```swift
-    protocol UserCellDelegate: NSObjectProtocol {
-
-        func userCellDidSetProfileImage(button: FollowButton)
-        func userCell(button: FollowButton, didTapFollowButtonWithUser user: User)
-        
+    protocol UserCellDelegate {
+      func userCellDidSetProfileImage(_ cell: UserCell)
+      func userCell(_ cell: UserCell, didTapFollowButtonWith user: User)
     }
     ```
 
     **나쁜 예:**
 
     ```swift
-    protocol UserCellDelegate: NSObjectProtocol {
+    protocol UserCellDelegate {
+      func didSetProfileImage()
+      func followPressed(user: User)
 
-        func didSetProfileImage()
-        func followPressed(user: User)
-        
-        // `UserCell`이라는 클래스가 존재할 경우 에러 발생
-        func UserCell(button: FollowButton, didTapFollowButtonWithUser user: User)
-
+      // `UserCell`이라는 클래스가 존재할 경우 컴파일 에러 발생
+      func UserCell(_ cell: UserCell, didTapFollowButtonWith user: User)
     }
     ```
 
@@ -298,7 +326,7 @@ import URLNavigator
 
     ```swift
     { operaion, responseObject in
-        // ...
+      // doSomething()
     }
     ```
 
@@ -306,7 +334,7 @@ import URLNavigator
 
     ```swift
     { (operaion, responseObject) in
-        // ...
+      // doSomething()
     }
     ```
 
@@ -317,7 +345,7 @@ import URLNavigator
     ```swift
     ...,
     completion: { finished in
-       // ...
+      // doSomething()
     }
     ```
 
@@ -326,7 +354,7 @@ import URLNavigator
     ```swift
     ...,
     completion: { (finished: Bool) -> Void in
-        // ...
+      // doSomething()
     }
     ```
 
@@ -335,40 +363,17 @@ import URLNavigator
     **좋은 예:**
 
     ```swift
-    UIView.animateWithDuration(0.5) {
-        // ...
+    UIView.animate(withDuration: 0.5) {
+      // doSomething()
     }
     ```
 
     **나쁜 예:**
 
     ```swift
-    UIView.animateWithDuration(0.5, animations: { () -> Void in
-        // ...
+    UIView.animate(withDuration: 0.5, animations: { () -> Void in
+      // doSomething()
     })
-    ```
-
--  Closure 호출시 Closure를 유일한 파라미터로 받는 경우, 괄호를 생략해도 됩니다.
-
-    ```swift
-    let sortedArray = array.sort { ... }
-    let sortedArray = array.sort() { ... }
-    ```
-
-- 하나의 구문만 존재하는 Closure 사용시 파라미터와 `return` 구문을 생략합니다.
-
-    **좋은 예:**
-
-    ```swift
-    let sortedArray = array.sort { $0 > $1 }
-    ```
-
-    **나쁜 예:**
-
-    ```swift
-    let sortedArray = array.sort { obj1, objc2 in
-        return obj1 > obj2
-    }
     ```
 
 ## 클래스와 구조체
@@ -429,25 +434,25 @@ import URLNavigator
     // MARK: Init
 
     override init(frame: CGRect) {
-        // ...
+      // doSomething()
     }
 
     deinit {
-        // ...
+      // doSomething()
     }
 
 
     // MARK: Layout
 
     override func layoutSubviews() {
-        // ...
+      // doSomething()
     }
 
 
     // MARK: Actions
 
     override func menuButtonDidTap() {
-        // ...
+      // doSomething()
     }
     ```
 
@@ -457,9 +462,9 @@ import URLNavigator
 
     ```swift
     let label = UILabel().then {
-        $0.textAlignment = .Center
-        $0.textColor = .blackColor()
-        $0.text = "Hello, World!"
+      $0.textAlignment = .center
+      $0.textColor = .black
+      $0.text = "Hello, World!"
     }
     ```
 
@@ -468,24 +473,22 @@ import URLNavigator
     ```swift
     final class ProfileViewController: UIViewController {
 
-        struct Metric {
-            static let profileImageViewLeft = 10.f
-            static let profileImageViewRight = 10.f
-            static let nameLabelTopBottom = 8.f
-            static let bioLabelTop = 6.f
-        }
-        
-        struct Font {
-            static let nameLabel = UIFont.boldSystemFontOfSize(14)
-            static let bioLabel = UIFont.boldSystemFontOfSize(12)
-        }
-        
-        struct Color {
-            static let nameLabelText = 0x000000~
-            static let bioLabelText = 0x333333~70%
-        }
+      struct Metric {
+        static let profileImageViewLeft = 10.f
+        static let profileImageViewRight = 10.f
+        static let nameLabelTopBottom = 8.f
+        static let bioLabelTop = 6.f
+      }
 
-        // ...
+      struct Font {
+        static let nameLabel = UIFont.boldSystemFont(ofSize: 14)
+        static let bioLabel = UIFont.boldSystemFont(ofSize: 12)
+      }
+
+      struct Color {
+        static let nameLabelText = 0x000000.color
+        static let bioLabelText = 0x333333.color ~ 70%
+      }
 
     }
     ```
@@ -506,21 +509,19 @@ import URLNavigator
 
     ```swift
     final class MyViewController: UIViewController {
-        // ...
+      // ...
     }
-
 
     // MARK: - UITableViewDataSource
 
     extension MyViewController: UITableViewDataSource {
-        // ...
+      // ...
     }
-
 
     // MARK: - UITableViewDelegate
 
     extension MyViewController: UITableViewDelegate {
-        // ...
+      // ...
     }
     ```
 
@@ -528,7 +529,7 @@ import URLNavigator
 
     ```swift
     final class MyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-        // ...
+      // ...
     }
     ```
 
