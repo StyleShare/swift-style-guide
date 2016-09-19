@@ -4,7 +4,7 @@ Swift Style Guide
 ![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)
 [![Creative Commons License](https://img.shields.io/badge/license-CC--BY--4.0-blue.svg)](http://creativecommons.org/licenses/by/4.0/)
 
-StyleShare 구성원들이 Swift 코드를 이해하기 쉽고 명확하게 작성하기 위한 스타일 가이드입니다. 구성원들의 의사결정에 따라 수시로 변경될 수 있습니다.
+StyleShare 구성원들이 Swift 코드를 이해하기 쉽고 명확하게 작성하기 위한 스타일 가이드입니다. 구성원들의 의사결정에 따라 수시로 변경될 수 있습니다. ([Swift 2.2 스타일 가이드와 비교하기](https://github.com/StyleShare/swift-style-guide/compare/e94182e5aafe4ad4ef1172649405820b9986125b...master))
 
 본 문서에 나와있지 않은 규칙은 아래 문서를 따릅니다.
 
