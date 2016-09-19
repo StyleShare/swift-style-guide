@@ -110,17 +110,19 @@ StyleShare 구성원들이 Swift 코드를 이해하기 쉽고 명확하게 작�
     if let user = self.veryLongFunctionNameWhichReturnsOptionalUser(),
       let name = user.veryLongFunctionNameWhichReturnsOptionalName(),
       user.gender == .female {
-       // ...
+      // ...
     }
     ```
     
-- `guard let` 구문이 길 경우에는 줄바꿈하고 한 칸 들여씁니다.
+- `guard let` 구문이 길 경우에는 줄바꿈하고 한 칸 들여씁니다. `else`는 `guard`와 같은 들여쓰기를 적용합니다.
 
     ```swift
     guard let user = self.veryLongFunctionNameWhichReturnsOptionalUser(),
       let name = user.veryLongFunctionNameWhichReturnsOptionalName(),
       user.gender == .female
-      else { return }
+    else {
+      return
+    }
     ```
 
 ### 최대 줄 길이
