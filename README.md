@@ -263,21 +263,21 @@ import URLNavigator
 
     **좋은 예:**
 
-    ```swift
-    let userID: Int?
-    let html: String?
-    let websiteURL: URL?
-    let urlString: String?
-    ```
+    <pre>
+    let user<strong>ID</strong>: Int?
+    let <strong>html</strong>: String?
+    let website<strong>URL</strong>: URL?
+    let <strong>url</strong>String: String?
+    </pre>
 
     **나쁜 예:**
 
-    ```swift
-    let userId: Int?
-    let HTML: String?
-    let websiteUrl: NSURL?
-    let URLString: String?
-    ```
+    <pre>
+    let user<strong>Id</strong>: Int?
+    let <strong>HTML</strong>: String?
+    let website<strong>Url</strong>: NSURL?
+    let <strong>URL</strong>String: String?
+    </pre>
 
 ### Delegate
 
