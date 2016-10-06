@@ -56,7 +56,7 @@ StyleShare 구성원들이 Swift 코드를 이해하기 쉽고 명확하게 작�
     ```swift
     func collectionView(
       _ collectionView: UICollectionView,
-      cellForItemAtIndexPath indexPath: NSIndexPath
+      cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
       // doSomething()
     }
