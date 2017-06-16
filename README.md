@@ -181,7 +181,7 @@ import URLNavigator
 
 - Action 함수의 네이밍은 '주어 + 동사 + 목적어' 형태를 사용합니다.
 
-    - *Tap(눌렀다 뗌)*은 `UIControlEvents`의 `.TouchUpInside`에 대응하고, *Press(누름)*는 `.TouchDown`에 대응합니다.
+    - *Tap(눌렀다 뗌)*은 `UIControlEvents`의 `.touchUpInside`에 대응하고, *Press(누름)*는 `.touchDown`에 대응합니다.
     - *will~*은 특정 행위가 일어나기 직전이고, *did~*는 특정 행위가 일어난 직후입니다.
     - *should~*는 일반적으로 `Bool`을 반환하는 함수에 사용됩니다.
 
@@ -413,7 +413,6 @@ import URLNavigator
 
         /// 사용자 닉네임을 그려주는 라벨
         var nameLabel: UILabel!
-
     }
     ```
 
