@@ -469,24 +469,24 @@ import URLNavigator
     }
     ```
 
-- 상수를 정의할 때에는 `struct`를 만들어 비슷한 상수끼리 모아둡니다. 재사용성과 유지보수 측면에서 큰 향상을 가져옵니다. [CGFloatLiteral](https://github.com/devxoul/CGFloatLiteral)과 [SwiftyColor](https://github.com/devxoul/SwiftyColor)를 사용해서 코드를 단순화시킵니다.
+- 상수를 정의할 때에는 `enum`를 만들어 비슷한 상수끼리 모아둡니다. 재사용성과 유지보수 측면에서 큰 향상을 가져옵니다. `struct` 대신 `enum`을 사용하는 이유는, 생성자가 제공되지 않는 자료형을 사용하기 위해서입니다. [CGFloatLiteral](https://github.com/devxoul/CGFloatLiteral)과 [SwiftyColor](https://github.com/devxoul/SwiftyColor)를 사용해서 코드를 단순화시킵니다.
 
     ```swift
     final class ProfileViewController: UIViewController {
 
-      struct Metric {
+      enum Metric {
         static let profileImageViewLeft = 10.f
         static let profileImageViewRight = 10.f
         static let nameLabelTopBottom = 8.f
         static let bioLabelTop = 6.f
       }
 
-      struct Font {
+      enum Font {
         static let nameLabel = UIFont.boldSystemFont(ofSize: 14)
         static let bioLabel = UIFont.boldSystemFont(ofSize: 12)
       }
 
-      struct Color {
+      enum Color {
         static let nameLabelText = 0x000000.color
         static let bioLabelText = 0x333333.color ~ 70%
       }
