@@ -80,15 +80,6 @@ StyleShare 구성원들이 Swift 코드를 이해하기 쉽고 명확하게 작�
       destructiveButtonTitle: "삭제해주세요"
     )
     ```
-    
-    또는
-    
-    ```swift
-    let actionSheet = UIActionSheet(title: "정말 계정을 삭제하실 건가요?",
-                                    delegate: self,
-                                    cancelButtonTitle: "취소",
-                                    destructiveButtonTitle: "삭제해주세요")
-    ```
 
     단, 파라미터에 클로저가 2개 이상 존재하는 경우에는 무조건 내려쓰기합니다.
 
