@@ -317,7 +317,7 @@ import URLNavigator
     **좋은 예:**
 
     ```swift
-    { operaion, responseObject in
+    { operation, responseObject in
       // doSomething()
     }
     ```
@@ -325,7 +325,7 @@ import URLNavigator
     **나쁜 예:**
 
     ```swift
-    { (operaion, responseObject) in
+    { (operation, responseObject) in
       // doSomething()
     }
     ```
