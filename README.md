@@ -431,18 +431,17 @@ import URLNavigator
     deinit {
       // doSomething()
     }
-    ```
 
 
     // MARK: Layout
-    
+
     override func layoutSubviews() {
       // doSomething()
     }
 
 
     // MARK: Actions
-    
+
     override func menuButtonDidTap() {
       // doSomething()
     }
