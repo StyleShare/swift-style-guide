@@ -120,7 +120,7 @@ StyleShare 구성원들이 Swift 코드를 이해하기 쉽고 명확하게 작�
 
 - 한 줄은 최대 99자를 넘지 않아야 합니다.
 
-    Xcode의 **Preferences → Text Editing → Editing**의 'Page guide at column' 옵션을 활성화하고 99자로 설정하면 편리합니다.
+    Xcode의 **Preferences → Text Editing → Display**의 'Page guide at column' 옵션을 활성화하고 99자로 설정하면 편리합니다.
 
 ### 빈 줄
 
