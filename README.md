@@ -411,8 +411,8 @@ import URLNavigator
     /// 사용자 프로필을 그려주는 뷰
     class ProfileView: UIView {
 
-        /// 사용자 닉네임을 그려주는 라벨
-        var nameLabel: UILabel!
+      /// 사용자 닉네임을 그려주는 라벨
+      var nameLabel: UILabel!
     }
     ```
 
