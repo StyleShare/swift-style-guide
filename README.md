@@ -222,7 +222,7 @@ import URLNavigator
     **나쁜 예:**
 
     ```swift
-    let kMaximumNumberOfLines = 3
+    let MaximumNumberOfLines = 3
     let MAX_LINES = 3
     ```
     
