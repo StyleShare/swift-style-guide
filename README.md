@@ -99,7 +99,7 @@ StyleShare 구성원들이 Swift 코드를 이해하기 쉽고 명확하게 작�
 
     ```swift
     if let user = self.veryLongFunctionNameWhichReturnsOptionalUser(),
-      let name = user.veryLongFunctionNameWhichReturnsOptionalName(),
+       let name = user.veryLongFunctionNameWhichReturnsOptionalName(),
       user.gender == .female {
       // ...
     }
@@ -109,8 +109,8 @@ StyleShare 구성원들이 Swift 코드를 이해하기 쉽고 명확하게 작�
 
     ```swift
     guard let user = self.veryLongFunctionNameWhichReturnsOptionalUser(),
-      let name = user.veryLongFunctionNameWhichReturnsOptionalName(),
-      user.gender == .female
+          let name = user.veryLongFunctionNameWhichReturnsOptionalName(),
+          user.gender == .female
     else {
       return
     }
