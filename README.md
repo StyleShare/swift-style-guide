@@ -157,10 +157,34 @@ import URLNavigator
 
 ## 네이밍
 
-### 클래스
+### 클래스와 구조체
 
-- 클래스 이름에는 UpperCamelCase를 사용합니다.
+- 클래스와 구조체의 이름에는 UpperCamelCase를 사용합니다.
 - 클래스 이름에는 접두사<sup>Prefix</sup>를 붙이지 않습니다.
+
+  **좋은 예:**
+
+  ```swift
+  class SomeClass {
+    // class definition goes here
+  }
+
+  struct SomeStructure {
+    // structure definition goes here
+  }
+  ```
+
+  **나쁜 예:**
+
+  ```swift
+  class someClass {
+  // class definition goes here
+  }
+
+  struct someStructure {
+  // structure definition goes here
+  }
+  ```
 
 ### 함수
 
