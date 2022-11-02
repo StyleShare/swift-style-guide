@@ -278,6 +278,31 @@ import URLNavigator
   }
   ```
 
+### 프로토콜
+
+- 프로토콜의 이름에는 UpperCamelCase를 사용합니다.
+- 구조체나 클래스에서 프로토콜을 채택할 때는 콜론과 빈칸을 넣어 구분하여 명시합니다.
+- extension을 통해 채택할 때도 동일하게 적용됩니다.
+
+  **좋은 예:**
+
+  ```swift
+  protocol SomeProtocol {
+    // protocol definition goes here
+  }
+
+  struct SomeStructure: SomeProtocol, AnotherProtocol {
+    // structure definition goes here
+  }
+
+  class SomeClass: SomeSuperclass, SomeProtocol, AnotherProtocol {
+      // class definition goes here
+  }
+
+  extension UIViewController: SomeProtocol, AnotherProtocol {
+    // doSomething()
+  }
+  ```
 
 ### 약어
 
