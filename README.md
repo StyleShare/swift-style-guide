@@ -252,25 +252,32 @@ import URLNavigator
     
 ### 열거형
 
+- enum의 이름에는 UpperCamelCase를 사용합니다.
 - enum의 각 case에는 lowerCamelCase를 사용합니다.
 
-    **좋은 예:**
+  **좋은 예:**
 
-    ```swift
-    enum Result {
-      case .success
-      case .failure
-    }
-    ```
-    
-    **나쁜 예:**
+  ```swift
+  enum Result {
+    case .success
+    case .failure
+  }
+  ```
 
-    ```swift
-    enum Result {
-      case .Success
-      case .Failure
-    }
-    ```
+  **나쁜 예:**
+
+  ```swift
+  enum Result {
+    case .Success
+    case .Failure
+  }
+
+  enum result {
+    case .Success
+    case .Failure
+  }
+  ```
+
 
 ### 약어
 
