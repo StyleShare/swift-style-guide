@@ -14,18 +14,20 @@ StyleShare 구성원들이 Swift 코드를 이해하기 쉽고 명확하게 작�
 ## 목차
 
 - [코드 레이아웃](#코드-레이아웃)
-    - [들여쓰기 및 띄어쓰기](#들여쓰기-및-띄어쓰기)
-    - [줄바꿈](#줄바꿈)
-    - [최대 줄 길이](#최대-줄-길이)
-    - [빈 줄](#빈-줄)
-    - [임포트](#임포트)
+  - [들여쓰기 및 띄어쓰기](#들여쓰기-및-띄어쓰기)
+  - [줄바꿈](#줄바꿈)
+  - [최대 줄 길이](#최대-줄-길이)
+  - [빈 줄](#빈-줄)
+  - [임포트](#임포트)
 - [네이밍](#네이밍)
-    - [클래스](#클래스)
-    - [함수](#함수)
-    - [변수](#변수)
-    - [상수](#상수)
-    - [약어](#약어)
-    - [Delegate](#delegate)
+  - [클래스와 구조체](#클래스와-구조체)
+  - [함수](#함수)
+  - [변수](#변수)
+  - [상수](#상수)
+  - [열거형](#열거형)
+  - [프로토콜](#프로토콜)
+  - [약어](#약어)
+  - [Delegate](#delegate)
 - [클로저](#클로저)
 - [클래스와 구조체](#클래스와-구조체)
 - [타입](#타입)
@@ -157,10 +159,34 @@ import URLNavigator
 
 ## 네이밍
 
-### 클래스
+### 클래스와 구조체
 
-- 클래스 이름에는 UpperCamelCase를 사용합니다.
+- 클래스와 구조체의 이름에는 UpperCamelCase를 사용합니다.
 - 클래스 이름에는 접두사<sup>Prefix</sup>를 붙이지 않습니다.
+
+  **좋은 예:**
+
+  ```swift
+  class SomeClass {
+    // class definition goes here
+  }
+
+  struct SomeStructure {
+    // structure definition goes here
+  }
+  ```
+
+  **나쁜 예:**
+
+  ```swift
+  class someClass {
+  // class definition goes here
+  }
+
+  struct someStructure {
+  // structure definition goes here
+  }
+  ```
 
 ### 함수
 
@@ -228,25 +254,57 @@ import URLNavigator
     
 ### 열거형
 
+- enum의 이름에는 UpperCamelCase를 사용합니다.
 - enum의 각 case에는 lowerCamelCase를 사용합니다.
 
-    **좋은 예:**
+  **좋은 예:**
 
-    ```swift
-    enum Result {
-      case .success
-      case .failure
-    }
-    ```
-    
-    **나쁜 예:**
+  ```swift
+  enum Result {
+    case .success
+    case .failure
+  }
+  ```
 
-    ```swift
-    enum Result {
-      case .Success
-      case .Failure
-    }
-    ```
+  **나쁜 예:**
+
+  ```swift
+  enum Result {
+    case .Success
+    case .Failure
+  }
+
+  enum result {
+    case .Success
+    case .Failure
+  }
+  ```
+
+### 프로토콜
+
+- 프로토콜의 이름에는 UpperCamelCase를 사용합니다.
+- 구조체나 클래스에서 프로토콜을 채택할 때는 콜론과 빈칸을 넣어 구분하여 명시합니다.
+- extension을 통해 채택할 때도 동일하게 적용됩니다.
+
+  **좋은 예:**
+
+  ```swift
+  protocol SomeProtocol {
+    // protocol definition goes here
+  }
+
+  struct SomeStructure: SomeProtocol, AnotherProtocol {
+    // structure definition goes here
+  }
+
+  class SomeClass: SomeSuperclass, SomeProtocol, AnotherProtocol {
+      // class definition goes here
+  }
+
+  extension UIViewController: SomeProtocol, AnotherProtocol {
+    // doSomething()
+  }
+  ```
 
 ### 약어
 
